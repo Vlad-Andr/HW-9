@@ -4,12 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
 public class ListBox {
 
-    public ListBox() {
-    }
-
     public void findFragileThing() {
+
+        System.out.println("\nTask 4 : \n");
+
         List<Thing> firstBoxContent = new ArrayList<>();
         firstBoxContent.add(new Thing("cityMap", false));
         firstBoxContent.add(new Thing("chessBoard", false));

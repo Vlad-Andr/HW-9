@@ -3,9 +3,9 @@ package com.company.task3;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 
 public class ListOfMovie {
 
@@ -14,13 +14,13 @@ public class ListOfMovie {
 
     public static void filtredByMovie(){
 
+        System.out.println("\nTask 3 : \n");
+
         List<Movie> movies1 = createListOfMovie();
         List<Movie> movies2 = createListOfMovies();
 
-        Map<String, Double> groupByGenre;
-        groupByGenre = Stream.concat(movies1.stream(),movies2.stream())
-                        .collect(Collectors
-                        .groupingBy(Movie::getGenre,Collectors.averagingDouble(Movie::getTicketPrice)));
+        Map<String, Double> groupByGenre = Stream.concat(movies1.stream(),movies2.stream())
+                                                 .collect(Collectors.groupingBy(Movie::getGenre,Collectors.averagingDouble(Movie::getTicketPrice)));
 
         Map<String, Long> countGenre = Stream.concat(movies1.stream(),movies2.stream())
                                              .collect(Collectors.groupingBy(Movie::getGenre,Collectors.counting()));
@@ -38,7 +38,6 @@ public class ListOfMovie {
         movies1.add(new Movie("Drama",13.80));
         movies1.add(new Movie("Comedy",16.60));
         movies1.add(new Movie("Drama",12.80));
-
         return movies1;
     }
     public static List<Movie> createListOfMovies() {
@@ -47,7 +46,7 @@ public class ListOfMovie {
         movies2.add(new Movie("Detective", 10.40));
         movies2.add(new Movie("Drama", 20.20));
         movies2.add(new Movie("Comedy", 25.80));
-return movies2;
+        return movies2;
 
     }
 }
